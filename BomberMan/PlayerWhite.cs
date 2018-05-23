@@ -8,6 +8,8 @@ class PlayerWhite : Player
 {
     public PlayerWhite(): base()
     {
+        Energy = 1;
+
         SpriteXCoordinates[(int)MovableSprite.SpriteMovementWhite.DOWN] = 
             new int[] { 320, 360, 400 };
         SpriteYCoordinates[(int)MovableSprite.SpriteMovementWhite.DOWN] = 
@@ -35,5 +37,11 @@ class PlayerWhite : Player
     {
         Bombs newBomb = new Bombs();
         base.AddBomb(newBomb);
+    }
+
+    public override void RemoveBomb()
+    {
+        Bombs OldBomb = new Bombs();
+        base.RemoveBomb(OldBomb);
     }
 }

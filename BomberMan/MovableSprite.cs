@@ -12,7 +12,6 @@ class MovableSprite : Sprite
     public enum SpriteMovementBomb { SPACE };
     public SpriteMovementWhite CurrentDirectionWhite { get; set; }
     public SpriteMovementRed CurrentDirectionRed { get; set; }
-    public SpriteMovementRed CurrentDirectionBomb { get; set; }
     public SpriteMovementBomb CurrentDirection { get; set; }
     public byte CurrentSprite { get; set; }
 
@@ -52,20 +51,9 @@ class MovableSprite : Sprite
 
     public void AnimateBomb(SpriteMovementBomb movement)
     {
-        if (movement != CurrentDirection)
-        {
-            CurrentDirection = movement;
-            CurrentSprite = 0;
-            currentSpriteChange = 0;
-        }
+        CurrentSprite = 0;
         currentSpriteChange++;
-        if (currentSpriteChange >= SPRITE_CHANGE)
-        {
-            currentSpriteChange = 0;
-            CurrentSprite = (byte)((CurrentSprite + 1) %
-                SpriteXCoordinates[(int)CurrentDirectionRed].Length);
-        }
-        UpdateSpriteCoordinatesRed();
+        UpdateSpriteBomb();
     }
 
     public void AnimateRed(SpriteMovementRed movement)

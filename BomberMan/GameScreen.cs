@@ -4,13 +4,14 @@ using System.Threading;
 
 class GameScreen : Screen
 {
-    const ushort SHOT_INTERVAL = 200;
     Player playerWhite, playerRed;
     MovableSprite bomb;
     Image imgInfo, imgFloor;
     Font font36, font28;
     Level level;
     IntPtr fontTime;
+    int min = 3;
+    int sec = 0;
     Sdl.SDL_Color white;
 
     public GameScreen(Hardware hardware) : base(hardware)
@@ -37,8 +38,12 @@ class GameScreen : Screen
     private void ShotBomb()
     {
         bool space = hardware.IsKeyPressed(Hardware.KEY_SPACE);
+        bool nenter = hardware.IsKeyPressed(Hardware.KEY_NENTER);
 
         if (space)
+            bomb.AnimateBomb(MovableSprite.SpriteMovementBomb.SPACE);
+
+        if (nenter)
             bomb.AnimateBomb(MovableSprite.SpriteMovementBomb.SPACE);
     }
 
@@ -151,21 +156,19 @@ class GameScreen : Screen
 
     public void DecreaseTime(Object o)
     {
-        int min = 3;
-        int sec = 0;
-
         sec--;
         if (sec < 0 && min != 0)
         {
-            min = min--;
+            min--;
             sec = 59;
         }
-        else if (min == 0 && sec < 0)
+        if (min == 0 && sec < 0)
             sec = 0;
 
-        fontTime = SdlTtf.TTF_RenderText_Solid(font36.GetFontType(), 
-                min + ":" + sec, white);
+        fontTime = SdlTtf.TTF_RenderText_Solid(font36.GetFontType(),
+                min + ":" + sec.ToString("00"), white);
     }
+
 
     public override void Show()
     {
@@ -186,7 +189,7 @@ class GameScreen : Screen
             hardware.ClearScreen();
             hardware.DrawImage(imgInfo);
             hardware.DrawImage(imgFloor);
-            hardware.WriteText(fontTime, 360, 700);
+            hardware.WriteText(fontTime, 362, 700);
 
             foreach (Brick brick in level.Bricks)
                 hardware.DrawSprite(Sprite.spritesheet, 
@@ -212,6 +215,14 @@ class GameScreen : Screen
                     Sprite.SPRITE_WIDTH, 
                     Sprite.SPRITE_HEIGHT);
 
+            foreach (MovableSprite bomb in playerRed.Bombs)
+                hardware.DrawSprite(Sprite.spritesheet,
+                    (short)(bomb.X - level.XMap),
+                    (short)(bomb.Y - level.YMap),
+                    bomb.SpriteX, bomb.SpriteY,
+                    Sprite.SPRITE_WIDTH,
+                    Sprite.SPRITE_HEIGHT);
+
             hardware.DrawSprite(Sprite.spritesheet, 
                 (short)(playerWhite.X - level.XMap), 
                 (short)(playerWhite.Y - level.YMap), 
@@ -224,7 +235,6 @@ class GameScreen : Screen
                 playerRed.SpriteXRed, playerRed.SpriteYRed, 
                 Sprite.SPRITE_WIDTH, Sprite.SPRITE_HEIGHT);
             
-
             hardware.UpdateScreen();
 
             int keyPressed = hardware.KeyPressed();
@@ -247,7 +257,16 @@ class GameScreen : Screen
             oldYMapRed = level.YMap;
 
             movePlayer();
-
+            if (hardware.IsKeyPressed(Hardware.KEY_NENTER))
+            {
+                playerWhite.AddBomb();
+                playerRed.RemoveBomb();
+            }
+            if (hardware.IsKeyPressed(Hardware.KEY_SPACE))
+            {
+                playerRed.AddBomb();
+                playerRed.RemoveBomb();
+            }
 
             // 3.  Check collisions and update game state
             if (playerWhite.CollidesWith(level.Bricks) ||

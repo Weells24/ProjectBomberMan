@@ -9,6 +9,8 @@ class PlayerRed : Player
 {
     public PlayerRed() : base()
     {
+        Energy = 1;
+
         // DOWN
         SpriteXCoordinates[(int)MovableSprite.SpriteMovementRed.S] = 
             new int[] { 200, 240, 280 };
@@ -41,5 +43,11 @@ class PlayerRed : Player
     {
         Bombs newBomb = new Bombs();
         base.AddBomb(newBomb);
+    }
+
+    public override void RemoveBomb()
+    {
+        Bombs OldBomb = new Bombs();
+        base.RemoveBomb(OldBomb);
     }
 }

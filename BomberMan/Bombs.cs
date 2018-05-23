@@ -1,5 +1,7 @@
 ﻿class Bombs : Weapons
 {
+    public const byte DAMAGE = 1;
+
     public Bombs()
     {
         SpriteXCoordinates[(int)MovableSprite.SpriteMovementBomb.SPACE] =

@@ -16,6 +16,7 @@ class Hardware
     public const int KEY_LEFT = Sdl.SDLK_LEFT;
     public const int KEY_RIGHT = Sdl.SDLK_RIGHT;
     public const int KEY_SPACE = Sdl.SDLK_SPACE;
+    public const int KEY_NENTER = Sdl.SDLK_KP_ENTER;
     public const int KEY_A = Sdl.SDLK_a;
     public const int KEY_S = Sdl.SDLK_s;
     public const int KEY_W = Sdl.SDLK_w;

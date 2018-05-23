@@ -3,16 +3,16 @@
 abstract class Player : MovableSprite
 {
     public const byte STEP_LENGTH = 4;
-    public byte Lives { get; set; }
+    public byte Energy { get; set; }
     public List<Weapons> Bombs { get; }
 
     public Player()
     {
-        Lives = 3;
         Bombs = new List<Weapons>();
     }
 
     public abstract void AddBomb();
+    public abstract void RemoveBomb();
 
     public void AddBomb(Weapons b)
     {
@@ -23,8 +23,8 @@ abstract class Player : MovableSprite
         Bombs.Add(b);
     }
 
-    public void RemoveBomb(int index)
+    public void RemoveBomb(Weapons b)
     {
-        Bombs.RemoveAt(index);
+        Bombs.Remove(b);
     }
 }
