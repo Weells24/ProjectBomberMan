@@ -7,10 +7,13 @@ class MovableSprite : Sprite
     const byte TOTAL_MOVEMENTS = 4;
     const byte SPRITE_CHANGE = 4;
 
-    public enum SpriteMovementWhite { LEFT, UP, RIGHT, DOWN};
-    public enum SpriteMovementRed { A, W, D, S};
+    public enum SpriteMovementWhite { LEFT, UP, RIGHT, DOWN };
+    public enum SpriteMovementRed { A, W, D, S };
+    public enum SpriteMovementBomb { SPACE };
     public SpriteMovementWhite CurrentDirectionWhite { get; set; }
     public SpriteMovementRed CurrentDirectionRed { get; set; }
+    public SpriteMovementRed CurrentDirectionBomb { get; set; }
+    public SpriteMovementBomb CurrentDirection { get; set; }
     public byte CurrentSprite { get; set; }
 
     byte currentSpriteChange;
@@ -22,6 +25,7 @@ class MovableSprite : Sprite
     {
         CurrentSprite = 0;
         CurrentDirectionWhite = SpriteMovementWhite.DOWN;
+        CurrentDirectionRed = SpriteMovementRed.W;
         currentSpriteChange = 0;
     }
 
@@ -44,6 +48,24 @@ class MovableSprite : Sprite
             }
         }
         UpdateSpriteCoordinatesWhite();
+    }
+
+    public void AnimateBomb(SpriteMovementBomb movement)
+    {
+        if (movement != CurrentDirection)
+        {
+            CurrentDirection = movement;
+            CurrentSprite = 0;
+            currentSpriteChange = 0;
+        }
+        currentSpriteChange++;
+        if (currentSpriteChange >= SPRITE_CHANGE)
+        {
+            currentSpriteChange = 0;
+            CurrentSprite = (byte)((CurrentSprite + 1) %
+                SpriteXCoordinates[(int)CurrentDirectionRed].Length);
+        }
+        UpdateSpriteCoordinatesRed();
     }
 
     public void AnimateRed(SpriteMovementRed movement)
@@ -84,6 +106,16 @@ class MovableSprite : Sprite
             [CurrentSprite]);
         SpriteYRed = 
             (short)(SpriteYCoordinates[(int)CurrentDirectionRed]
+            [CurrentSprite]);
+    }
+
+    public void UpdateSpriteBomb()
+    {
+        SpriteX =
+            (short)(SpriteXCoordinates[(int)CurrentSprite]
+            [CurrentSprite]);
+        SpriteY =
+            (short)(SpriteYCoordinates[(int)CurrentSprite]
             [CurrentSprite]);
     }
 }

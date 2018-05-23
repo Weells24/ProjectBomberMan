@@ -86,6 +86,7 @@
     <Compile Include="SettingScreen.cs" />
     <Compile Include="Sprite.cs" />
     <Compile Include="StaticSprite.cs" />
+    <Compile Include="Weapons.cs" />
     <Compile Include="WelcomeScreen.cs" />
   </ItemGroup>
   <ItemGroup>

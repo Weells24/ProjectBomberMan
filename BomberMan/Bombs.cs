@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-class Bombs
+﻿class Bombs : Weapons
 {
+    public Bombs()
+    {
+        SpriteXCoordinates[(int)MovableSprite.SpriteMovementBomb.SPACE] =
+                new int[] { 320, 360, 400 };
+        SpriteYCoordinates[(int)MovableSprite.SpriteMovementBomb.SPACE] =
+                new int[] { 120, 120, 120 };
+
+        UpdateSpriteBomb();
+    }
 }
 

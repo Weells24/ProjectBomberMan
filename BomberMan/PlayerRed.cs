@@ -36,4 +36,10 @@ class PlayerRed : Player
 
         UpdateSpriteCoordinatesRed();
     }
+
+    public override void AddBomb()
+    {
+        Bombs newBomb = new Bombs();
+        base.AddBomb(newBomb);
+    }
 }

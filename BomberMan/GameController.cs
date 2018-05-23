@@ -8,7 +8,7 @@ class GameController
     public const short SCREEN_HEIGHT = 755;
     public void Start()
     {
-        Hardware hardware = new Hardware(840, 755, 24, true);
+        Hardware hardware = new Hardware(840, 755, 24, false);
         WelcomeScreen welcome = new WelcomeScreen(hardware);
         SettingScreen setting = new SettingScreen(hardware);
         ControllerScreen controller = new ControllerScreen(hardware);
