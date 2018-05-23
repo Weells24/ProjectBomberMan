@@ -1,0 +1,96 @@
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\BomberMan.exe.config
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\jpeg.dll
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\libfreetype-6.dll
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\libpng12-0.dll
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\libpng12.dll
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\SDL.dll
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\SDL_gfx.dll
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\SDL_image.dll
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\SDL_mixer.dll
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\SDL_ttf.dll
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\Tao.Sdl.dll
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\zlib1.dll
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\BomberMan.exe
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\BomberMan.pdb
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\obj\Debug\BomberMan.csprojResolveAssemblyReference.cache
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\obj\Debug\BomberMan.exe
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\obj\Debug\BomberMan.pdb
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\imgs\MenuPrincipal.png
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\imgs\BombMenu1.png
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\imgs\select.png
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\imgs\SettingsScreen.png
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\music\BombermanNES.mp3
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\music\BOM_11_M.wav
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\music\BOS_JUMP.wav
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\music\reset.wav
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\font\prince_valiant.ttf
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\imgs\InfoPanel.png
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\imgs\Floor.png
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\imgs\spritesheetbom.png
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\levels\level1.txt
+C:\Users\Brandon\OneDrive\Programacion_1ºDAM\Nacho_Cabanes\Projects\ProjectFinal\BomberMan\BomberMan\bin\Debug\imgs\Brick.png
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\imgs\BombMenu1.png
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\imgs\Brick.png
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\imgs\Floor.png
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\imgs\InfoPanel.png
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\imgs\MenuPrincipal.png
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\imgs\select.png
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\imgs\SettingsScreen.png
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\imgs\spritesheetbom.png
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\jpeg.dll
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\levels\level1.txt
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\libfreetype-6.dll
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\libpng12-0.dll
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\libpng12.dll
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\music\BombermanNES.mp3
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\music\BOM_11_M.wav
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\music\BOS_JUMP.wav
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\music\reset.wav
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\SDL.dll
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\SDL_gfx.dll
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\SDL_image.dll
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\SDL_mixer.dll
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\SDL_ttf.dll
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\Tao.Sdl.dll
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\zlib1.dll
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\font\prince_valiant.ttf
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\BomberMan.exe.config
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\BomberMan.exe
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\bin\Debug\BomberMan.pdb
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\obj\Debug\BomberMan.csprojResolveAssemblyReference.cache
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\obj\Debug\BomberMan.csproj.CoreCompileInputs.cache
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\obj\Debug\BomberMan.exe
+C:\Users\Raul Gogna\Documents\Grado\1ºDAM 2017-2018\Programacion\ProyectoFinal\Proyecto\BomberMan\BomberMan\obj\Debug\BomberMan.pdb
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\BomberMan.exe.config
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\obj\Debug\BomberMan.exe
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\obj\Debug\BomberMan.pdb
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\imgs\BombMenu1.png
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\imgs\Brick.png
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\imgs\Floor.png
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\imgs\InfoPanel.png
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\imgs\MenuPrincipal.png
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\imgs\select.png
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\imgs\SettingsScreen.png
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\imgs\spritesheetbom.png
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\jpeg.dll
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\levels\level1.txt
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\libfreetype-6.dll
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\libpng12-0.dll
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\libpng12.dll
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\music\BombermanNES.mp3
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\music\BOM_11_M.wav
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\music\BOS_JUMP.wav
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\music\reset.wav
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\SDL.dll
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\SDL_gfx.dll
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\SDL_image.dll
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\SDL_mixer.dll
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\SDL_ttf.dll
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\Tao.Sdl.dll
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\zlib1.dll
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\font\prince_valiant.ttf
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\BomberMan.exe
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\BomberMan.pdb
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\obj\Debug\BomberMan.csprojResolveAssemblyReference.cache
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\imgs\CreditsScreen.png
+C:\Users\Brandon\OneDrive\Documentos\BomberMan\BomberMan\bin\Debug\font\Joystix.ttf
