@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 class ControllerScreen : Screen
 {
-    Image imgController/*,imgChosenOption*/;
-    //int chosenOption = 1;
+    Image imgController;
     Audio audio;
     bool exit = false;
 
@@ -16,10 +15,8 @@ class ControllerScreen : Screen
         exit = false;
         audio = new Audio(44100, 2, 4096);
         audio.AddWAV("music/reset.wav");
-        imgController = new Image("imgs/SettingsScreen.png", 800, 700);
-        //imgChosenOption = new Image("imgs/BombMenu1.png", 50, 50);
+        imgController = new Image("imgs/ControllerScreen.png", 840, 755);
         imgController.MoveTo(0,0);
-        //imgChosenOption.MoveTo(240, 390);
     }
 
     public override void Show()
@@ -31,7 +28,6 @@ class ControllerScreen : Screen
         {
             hardware.ClearScreen();
             hardware.DrawImage(imgController);
-            //hardware.DrawImage(imgChosenOption);
             hardware.UpdateScreen();
 
             int keyPressed = hardware.KeyPressed();

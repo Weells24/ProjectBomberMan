@@ -127,3 +127,4 @@ C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\font\prince_vali
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\BomberMan.exe
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\BomberMan.pdb
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\obj\Debug\BomberMan.csprojResolveAssemblyReference.cache
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\ControllerScreen.png

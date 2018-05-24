@@ -47,6 +47,11 @@ class GameScreen : Screen
             bomb.AnimateBomb(MovableSprite.SpriteMovementBomb.SPACE);
     }
 
+    public void ChangeBomb(Object o)
+    {
+
+    }
+
     private void movePlayer()
     {
         // Player White movement
@@ -180,6 +185,7 @@ class GameScreen : Screen
         playerWhite.MoveTo(40, 40);
         playerRed.MoveTo(120, 120);
         var timer = new Timer(this.DecreaseTime, null, 1000, 1000);
+        var changeSpriteBomb = new Timer(this.ChangeBomb, null, 1000, 3000);
 
         //audio.PlayMusic(0, -1);
 

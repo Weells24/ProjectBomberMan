@@ -24,7 +24,7 @@ class CreditsScreen : Screen
         font32 = new Font("font/Joystix.ttf", 32);
         green = new Sdl.SDL_Color(0, 255, 0);
         red = new Sdl.SDL_Color(255, 20,0 );
-        imgCredits = new Image("imgs/CreditsScreen.png",840,745);
+        imgCredits = new Image("imgs/CreditsScreen.png",840,755);
     }
 
     protected string[] credits = {

@@ -13,6 +13,7 @@ class GameController
         SettingScreen setting = new SettingScreen(hardware);
         ControllerScreen controller = new ControllerScreen(hardware);
         CreditsScreen credits = new CreditsScreen(hardware);
+        MapCreationScreen mapedition = new MapCreationScreen(hardware);
 
         do
         {
@@ -26,7 +27,7 @@ class GameController
                         setting.Show();
                         break;
                     case 2:
-                        //TO DO
+                        mapedition.Show();
                         break;
                     case 3:
                         controller.Show();

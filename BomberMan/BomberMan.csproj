@@ -105,6 +105,9 @@
     <Content Include="imgs\Brick.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="imgs\ControllerScreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="imgs\CreditsScreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

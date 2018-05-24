@@ -1,6 +1,7 @@
 ﻿using System;
 using Tao.Sdl;
 using System.Threading;
+using System.Collections;
 
 /*
 * This class will manage every hardware issue: screen resolution, 
@@ -9,6 +10,8 @@ using System.Threading;
 
 class Hardware
 {
+    // Alternate key definitions
+
     public const int KEY_ESC = Sdl.SDLK_ESCAPE;
     public const int KEY_UP = Sdl.SDLK_UP;
     public const int KEY_DOWN = Sdl.SDLK_DOWN;
@@ -17,10 +20,43 @@ class Hardware
     public const int KEY_RIGHT = Sdl.SDLK_RIGHT;
     public const int KEY_SPACE = Sdl.SDLK_SPACE;
     public const int KEY_NENTER = Sdl.SDLK_KP_ENTER;
+    public const int KEY_DELETE = Sdl.SDLK_DELETE;
     public const int KEY_A = Sdl.SDLK_a;
-    public const int KEY_S = Sdl.SDLK_s;
-    public const int KEY_W = Sdl.SDLK_w;
+    public const int KEY_B = Sdl.SDLK_b;
+    public const int KEY_C = Sdl.SDLK_c;
     public const int KEY_D = Sdl.SDLK_d;
+    public const int KEY_E = Sdl.SDLK_e;
+    public const int KEY_F = Sdl.SDLK_f;
+    public const int KEY_G = Sdl.SDLK_g;
+    public const int KEY_H = Sdl.SDLK_h;
+    public const int KEY_I = Sdl.SDLK_i;
+    public const int KEY_J = Sdl.SDLK_j;
+    public const int KEY_K = Sdl.SDLK_k;
+    public const int KEY_L = Sdl.SDLK_l;
+    public const int KEY_M = Sdl.SDLK_m;
+    public const int KEY_N = Sdl.SDLK_n;
+    public const int KEY_O = Sdl.SDLK_o;
+    public const int KEY_P = Sdl.SDLK_p;
+    public const int KEY_Q = Sdl.SDLK_q;
+    public const int KEY_R = Sdl.SDLK_r;
+    public const int KEY_S = Sdl.SDLK_s;
+    public const int KEY_T = Sdl.SDLK_t;
+    public const int KEY_U = Sdl.SDLK_u;
+    public const int KEY_V = Sdl.SDLK_v;
+    public const int KEY_W = Sdl.SDLK_w;
+    public const int KEY_X = Sdl.SDLK_x;
+    public const int KEY_Y = Sdl.SDLK_y;
+    public const int KEY_Z = Sdl.SDLK_z;
+    public const int KEY_1 = Sdl.SDLK_1;
+    public const int KEY_2 = Sdl.SDLK_2;
+    public const int KEY_3 = Sdl.SDLK_3;
+    public const int KEY_4 = Sdl.SDLK_4;
+    public const int KEY_5 = Sdl.SDLK_5;
+    public const int KEY_6 = Sdl.SDLK_6;
+    public const int KEY_7 = Sdl.SDLK_7;
+    public const int KEY_8 = Sdl.SDLK_8;
+    public const int KEY_9 = Sdl.SDLK_9;
+    public const int KEY_0 = Sdl.SDLK_0;
 
     short screenWidth;
     short screenHeight;
@@ -100,7 +136,6 @@ class Hardware
                 pressed = keyEvent.key.keysym.sym;
             }
         }
-
         return pressed;
     }
 
@@ -150,12 +185,50 @@ class Hardware
         Sdl.SDL_BlitSurface(textAsImage, ref src, screen, ref dest);
     }
 
-    /* Writes a line in the specified coordinates, with the specified 
-     * color and alpha
-     */
-    public void DrawLine(short x, short y, short x2, short y2, 
-            byte r, byte g, byte b, byte alpha)
+    public char ReadLetter(int KeyUser)
     {
-        SdlGfx.lineRGBA(screen, x, y, x2, y2, r, g, b, alpha);
+        char character = ' ';
+        
+        switch (KeyUser)
+        {
+            case KEY_ENTER:
+                character = '!';
+                break;
+            case KEY_DELETE:
+                character = ' ';
+                break;
+            case KEY_1:
+                character = '1';
+                break;
+            case KEY_2:
+                character = '2';
+                break;
+            case KEY_3:
+                character = '3';
+                break;
+            case KEY_4:
+                character = '4';
+                break;
+            case KEY_5:
+                character = '5';
+                break;
+            case KEY_6:
+                character = '6';
+                break;
+            case KEY_7:
+                character = '7';
+                break;
+            case KEY_8:
+                character = '8';
+                break;
+            case KEY_9:
+                character = '9';
+                break;
+            case KEY_0:
+                character = '0';
+                break;
+        }
+
+        return character;
     }
 }

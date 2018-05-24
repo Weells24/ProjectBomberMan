@@ -6,6 +6,7 @@ class MovableSprite : Sprite
 {
     const byte TOTAL_MOVEMENTS = 4;
     const byte SPRITE_CHANGE = 4;
+    const byte SPRITE_BOMBS = 3;
 
     public enum SpriteMovementWhite { LEFT, UP, RIGHT, DOWN };
     public enum SpriteMovementRed { A, W, D, S };
@@ -17,6 +18,8 @@ class MovableSprite : Sprite
 
     byte currentSpriteChange;
 
+    public int[]   SpriteXBomb = new int[SPRITE_BOMBS];
+    public int[]   SpriteYBomb = new int[SPRITE_BOMBS];
     public int[][] SpriteXCoordinates = new int[TOTAL_MOVEMENTS][];
     public int[][] SpriteYCoordinates = new int[TOTAL_MOVEMENTS][];
 
@@ -52,7 +55,7 @@ class MovableSprite : Sprite
     public void AnimateBomb(SpriteMovementBomb movement)
     {
         CurrentSprite = 0;
-        currentSpriteChange++;
+        CurrentSprite++;
         UpdateSpriteBomb();
     }
 
@@ -99,11 +102,7 @@ class MovableSprite : Sprite
 
     public void UpdateSpriteBomb()
     {
-        SpriteX =
-            (short)(SpriteXCoordinates[(int)CurrentSprite]
-            [CurrentSprite]);
-        SpriteY =
-            (short)(SpriteYCoordinates[(int)CurrentSprite]
-            [CurrentSprite]);
+        SpriteX = (short)SpriteXBomb[CurrentSprite];
+        SpriteY = (short)SpriteYBomb[CurrentSprite];
     }
 }
