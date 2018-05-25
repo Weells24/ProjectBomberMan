@@ -128,3 +128,6 @@ C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\BomberMan.exe
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\BomberMan.pdb
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\obj\Debug\BomberMan.csprojResolveAssemblyReference.cache
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\ControllerScreen.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\levels\lvldefault.lvl
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\MapScreen.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\cursor.png

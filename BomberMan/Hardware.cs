@@ -185,15 +185,21 @@ class Hardware
         Sdl.SDL_BlitSurface(textAsImage, ref src, screen, ref dest);
     }
 
-    public char ReadLetter(int KeyUser)
+    public char ReadLetter()
     {
         char character = ' ';
-        
-        switch (KeyUser)
+        bool exit = false;
+        int key_int;
+        do
         {
-            case KEY_ENTER:
-                character = '!';
-                break;
+            key_int = KeyPressed();
+            if (key_int != -1)
+                exit = true;
+
+        } while (!exit);
+        
+        switch (key_int)
+        {
             case KEY_DELETE:
                 character = ' ';
                 break;
@@ -227,8 +233,85 @@ class Hardware
             case KEY_0:
                 character = '0';
                 break;
+            case KEY_A:
+                character = 'a';
+                break;
+            case KEY_B:
+                character = 'b';
+                break;
+            case KEY_C:
+                character = 'c';
+                break;
+            case KEY_D:
+                character = 'd';
+                break;
+            case KEY_E:
+                character = 'e';
+                break;
+            case KEY_F:
+                character = 'f';
+                break;
+            case KEY_G:
+                character = 'g';
+                break;
+            case KEY_H:
+                character = 'h';
+                break;
+            case KEY_I:
+                character = 'i';
+                break;
+            case KEY_J:
+                character = 'j';
+                break;
+            case KEY_K:
+                character = 'k';
+                break;
+            case KEY_L:
+                character = 'l';
+                break;
+            case KEY_M:
+                character = 'm';
+                break;
+            case KEY_N:
+                character = 'n';
+                break;
+            case KEY_O:
+                character = 'o';
+                break;
+            case KEY_P:
+                character = 'p';
+                break;
+            case KEY_Q:
+                character = 'q';
+                break;
+            case KEY_R:
+                character = 'r';
+                break;
+            case KEY_S:
+                character = 's';
+                break;
+            case KEY_T:
+                character = 't';
+                break;
+            case KEY_U:
+                character = 'u';
+                break;
+            case KEY_V:
+                character = 'v';
+                break;
+            case KEY_W:
+                character = 'w';
+                break;
+            case KEY_X:
+                character = 'x';
+                break;
+            case KEY_Y:
+                character = 'y';
+                break;
+            case KEY_Z:
+                character = 'z';
+                break;
         }
-
         return character;
     }
 }

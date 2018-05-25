@@ -4,6 +4,7 @@ using System.Threading;
 
 class GameScreen : Screen
 {
+    ControllerScreen controller;
     Player playerWhite, playerRed;
     MovableSprite bomb;
     Image imgInfo, imgFloor;
@@ -33,6 +34,7 @@ class GameScreen : Screen
         playerWhite = new PlayerWhite();
         playerRed = new PlayerRed();
         bomb = new Bombs();
+        controller = new ControllerScreen(hardware);
     }
 
     private void ShotBomb()
@@ -263,17 +265,20 @@ class GameScreen : Screen
             oldYMapRed = level.YMap;
 
             movePlayer();
-            if (hardware.IsKeyPressed(Hardware.KEY_NENTER))
+            if (keyPressed == Hardware.KEY_NENTER)
             {
                 playerWhite.AddBomb();
-                playerRed.RemoveBomb();
+                playerWhite.RemoveBomb();
             }
-            if (hardware.IsKeyPressed(Hardware.KEY_SPACE))
+            if (keyPressed == Hardware.KEY_SPACE)
             {
                 playerRed.AddBomb();
                 playerRed.RemoveBomb();
             }
-
+            if (hardware.IsKeyPressed(Hardware.KEY_P))
+            {
+                controller.Show();
+            }
             // 3.  Check collisions and update game state
             if (playerWhite.CollidesWith(level.Bricks) ||
                 playerWhite.CollidesWith(level.BricksDestroyable))

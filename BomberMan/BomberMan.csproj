@@ -78,6 +78,7 @@
     <Compile Include="Level.cs" />
     <Compile Include="MapCreationScreen.cs" />
     <Compile Include="MovableSprite.cs" />
+    <Compile Include="NameMap.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerRed.cs" />
     <Compile Include="PlayerWhite.cs" />
@@ -111,10 +112,16 @@
     <Content Include="imgs\CreditsScreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="imgs\cursor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="imgs\Floor.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgs\InfoPanel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgs\MapScreen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgs\MenuPrincipal.png">
@@ -132,6 +139,9 @@
     <Content Include="jpeg.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="levels\lvldefault.lvl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="levels\level1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

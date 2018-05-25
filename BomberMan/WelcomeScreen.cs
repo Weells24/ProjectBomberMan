@@ -48,9 +48,9 @@ class WelcomeScreen : Screen
                 chosenOption++;
                 imgChosenOption.MoveTo(245, (short)(imgChosenOption.Y + 45));
             }
-            else if (keyPressed == Hardware.KEY_ESC)
+            else if (keyPressed == Hardware.KEY_ENTER && chosenOption == 5)
             {
-                escPressed = true;
+                enterPressed = true;
                 exit = true;
             }
             else if (keyPressed == Hardware.KEY_ENTER)
