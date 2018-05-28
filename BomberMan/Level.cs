@@ -29,17 +29,12 @@ class Level
             {
                 for (int j = 0; j < lines[i].Length; j++)
                 {
-                    if (lines[i][j] == 'B')
+                    if (lines[i][j] == 'B' || lines[i][j] == 'b')
                     {
                         AddBrick(new Brick((short)(j * Sprite.SPRITE_WIDTH),
                         (short)(i * Sprite.SPRITE_HEIGHT)));
                     }
-                    if (lines[i][j] == 'D')
-                    {
-                        BricksDestroyable.Add(new BrickDestroyable((short)(j * Sprite.SPRITE_WIDTH),
-                        (short)(i * Sprite.SPRITE_HEIGHT)));
-                    }
-                    if (lines[i][j] == 'W')
+                    if (lines[i][j] == 'D' || lines[i][j] == 'd')
                     {
                         BricksDestroyable.Add(new BrickDestroyable((short)(j * Sprite.SPRITE_WIDTH),
                         (short)(i * Sprite.SPRITE_HEIGHT)));

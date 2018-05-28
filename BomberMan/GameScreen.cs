@@ -277,7 +277,9 @@ class GameScreen : Screen
             }
             if (hardware.IsKeyPressed(Hardware.KEY_P))
             {
+                timer.Dispose();
                 controller.Show();
+                timer = new Timer(this.DecreaseTime, null, 1000, 1000); ;
             }
             // 3.  Check collisions and update game state
             if (playerWhite.CollidesWith(level.Bricks) ||
