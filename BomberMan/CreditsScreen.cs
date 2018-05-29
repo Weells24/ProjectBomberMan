@@ -10,8 +10,7 @@ class CreditsScreen : Screen
     Font font24, font32;
     Image imgCredits;
     IntPtr fontTexts;
-    Sdl.SDL_Color green;
-    Sdl.SDL_Color red;
+    Sdl.SDL_Color green, red;
 
     protected short yText = 40;
     protected short startY = 720;

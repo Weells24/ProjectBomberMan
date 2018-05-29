@@ -127,6 +127,9 @@
     <Content Include="imgs\MenuPrincipal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="imgs\NameMap.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="imgs\select.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -142,9 +145,9 @@
     <None Include="levels\lvldefault.lvl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="levels\level1.txt">
+    <None Include="levels\level1.lvl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="libfreetype-6.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -3,36 +3,41 @@ using System.Collections;
 using Tao.Sdl;
 using System.Threading;
 using System.IO;
+using System.Collections.Generic;
 
 class MapCreationScreen : Screen
 {
     const int WIDTH = 22;
     const int HEIGHT = 16;
-    const short YMAP = 250;
+    const short YMAP = 240;
     //const short XFIXED = 14;
-    
+
     Font font20;
     IntPtr fontEdition, fontAlert;
     Sdl.SDL_Color white;
-    Image imgMap, imgFloor, imgCursor;
+    Image imgMap, imgFloor, imgCursor,imgName;
     Level level;
     char[][] map = new char[HEIGHT][];
-    short XMap = 250;
+    short XMap = 330;
     short cursorXGrafic = 40;
     short cursorYGrafic = 40;
     int cursorX = 1;
     int cursorY = 1;
     char[] characters;
     int row = 0;
+    string fileDefault = "./lvldefault.lvl";
     string filename;
 
 
     public MapCreationScreen(Hardware hardware) : base(hardware)
     {
         font20 = new Font("font/Joystix.ttf", 20);
-        imgMap = new Image("imgs/MapScreen.png", 840, 755);
+        imgMap = new Image("imgs/MapScreen.png", 840, 105);
         imgFloor = new Image("imgs/Floor.png", 840, 680);
+        imgName = new Image("imgs/NameMap.png", 840, 745);
         imgCursor = new Image("imgs/cursor.png", 40, 40);
+        imgName.MoveTo(0, 0);
+        imgMap.MoveTo(0, 640);
         imgFloor.MoveTo(0, 0);
         imgCursor.MoveTo(40, 40);
         white = new Sdl.SDL_Color(255, 255, 255);
@@ -43,17 +48,16 @@ class MapCreationScreen : Screen
         string alertLoad;
         try
         {
-            if (!File.Exists("levels/lvldefault.lvl"))
+            if (!File.Exists(fileDefault))
             {
                 alertLoad = "Map not found!";
                 fontAlert =
                         SdlTtf.TTF_RenderText_Solid(font20.GetFontType(),
                         alertLoad, white);
                 hardware.WriteText(fontAlert, XMap, YMAP);
-                Thread.Sleep(500);
             }
             StreamReader MapDefault =
-                new StreamReader("levels/lvldefault.lvl");
+                new StreamReader(fileDefault);
             string line;
 
             // Load the default map in a two-dimensional array
@@ -73,9 +77,8 @@ class MapCreationScreen : Screen
             } while (line != null);
             MapDefault.Close();
         }
-        catch (PathTooLongException e)
+        catch (PathTooLongException)
         {
-            Console.WriteLine("Map not accesible: " + e.Message);
         }
         catch (IOException e)
         {
@@ -103,21 +106,19 @@ class MapCreationScreen : Screen
     public void CreateMap()
     {
         string alertCreate;
-    
+
         try
         {
-            if (!File.Exists(filename))
+            if (File.Exists(filename))
             {
                 alertCreate = "The file exists you want to overwrite it";
                 fontAlert =
                         SdlTtf.TTF_RenderText_Solid(font20.GetFontType(),
                         alertCreate, white);
                 hardware.WriteText(fontAlert, XMap, YMAP);
-                Thread.Sleep(500);
             }
             StreamWriter NewMap =
-                File.CreateText(@"C:\Users\Brandon\Documents\ProjectBomberMan"+
-                @"\BomberMan\levels\"+filename+".lvl");
+                File.CreateText(@"./" + filename + ".lvl");
             for (int i = 0; i < map.Length; i++)
             {
                 for (int j = 0; j < map[i].Length; j++)
@@ -127,10 +128,16 @@ class MapCreationScreen : Screen
                 NewMap.WriteLine();
             }
             NewMap.Close();
+
+            alertCreate = "Save File!";
+            fontAlert =
+                    SdlTtf.TTF_RenderText_Solid(font20.GetFontType(),
+                    alertCreate, white);
+            hardware.WriteText(fontAlert, 650, 710);
+            Thread.Sleep(100);
         }
-        catch (PathTooLongException e)
+        catch (PathTooLongException)
         {
-            Console.WriteLine("Map not accesible: " + e.Message);
         }
         catch (IOException e)
         {
@@ -170,8 +177,11 @@ class MapCreationScreen : Screen
 
     public override void Show()
     {
+        hardware.ClearScreen();
+        hardware.DrawImage(imgName);
+        hardware.UpdateScreen();
         bool escPressed = false;
-        level = new Level("levels/lvldefault.lvl");
+        level = new Level(fileDefault);
         LoadMap();
         MapName();
 
@@ -179,6 +189,7 @@ class MapCreationScreen : Screen
         {
             hardware.ClearScreen();
             hardware.DrawImage(imgFloor);
+            hardware.DrawImage(imgMap);
             hardware.DrawImage(imgCursor);
 
             foreach (Brick brick in level.Bricks)
@@ -226,11 +237,19 @@ class MapCreationScreen : Screen
                     //Console.WriteLine("R: " + cursorXGrafic);
                     break;
                 case Hardware.KEY_B:
-                    map[cursorX][cursorY] = 'B';
-                    Console.WriteLine(map[cursorX][cursorY]);
+                    if (cursorX >= 1 && cursorX <= 20 &&
+                            cursorY >= 1 && cursorY <= 16)
+                    {
+                        map[cursorY][cursorX] = 'B';
+                    }
+                    //Console.WriteLine(map[cursorX][cursorY]);
                     break;
                 case Hardware.KEY_D:
-                    map[cursorX][cursorY] = 'D';
+                    if (cursorX >= 1 && cursorX <= 20 &&
+                            cursorY >= 1 && cursorY <= 16)
+                    {
+                        map[cursorY][cursorX] = 'D';
+                    }
                     //Console.WriteLine(map[cursorX][cursorY]);
                     break;
                 case Hardware.KEY_ENTER:
@@ -240,7 +259,7 @@ class MapCreationScreen : Screen
             }
 
             //Pause Game
-            Thread.Sleep(80);
+            Thread.Sleep(70);
 
             if (keyPressed == Hardware.KEY_ESC)
                 escPressed = true;

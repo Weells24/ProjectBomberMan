@@ -38,10 +38,4 @@ class PlayerWhite : Player
         Bombs newBomb = new Bombs();
         base.AddBomb(newBomb);
     }
-
-    public override void RemoveBomb()
-    {
-        Bombs OldBomb = new Bombs();
-        base.RemoveBomb(OldBomb);
-    }
 }

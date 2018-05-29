@@ -107,7 +107,6 @@ C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\select.png
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\SettingsScreen.png
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\spritesheetbom.png
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\jpeg.dll
-C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\levels\level1.txt
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\libfreetype-6.dll
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\libpng12-0.dll
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\libpng12.dll
@@ -131,3 +130,5 @@ C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\ControllerS
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\levels\lvldefault.lvl
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\MapScreen.png
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\cursor.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\levels\level1.lvl
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\NameMap.png

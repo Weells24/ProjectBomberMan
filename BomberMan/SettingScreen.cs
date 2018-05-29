@@ -1,6 +1,7 @@
 ﻿using System;
 using Tao.Sdl;
 using System.Collections.Generic;
+using System.IO;
 
 class SettingScreen : Screen
 {
@@ -10,7 +11,7 @@ class SettingScreen : Screen
     Audio audio;
     Font font;
     IntPtr fontMap;
-    string[] map = { "FireMap", "WaterMap", "TreeMap" };
+    string[] map;
     int count = 0;
     GameScreen game;
     Sdl.SDL_Color white;
@@ -31,11 +32,29 @@ class SettingScreen : Screen
         white = new Sdl.SDL_Color(255, 255, 255);
     }
 
+    public void LoadMaps()
+    {
+        DirectoryInfo dir = 
+            new DirectoryInfo(@"C:\Users\Brandon\Documents\ProjectBomberMan\"+
+            @"BomberMan\levels");
+        FileInfo[] files = dir.GetFiles();
+        int size = files.Length;
+        map = new string[size];
+        
+        for (int i = 0; i < map.Length; i++)
+        {
+            if (files[i].Extension == ".lvl")
+            {
+                map[i] = files[i].Name;
+            }
+        }
+    }
 
     public override void Show()
     {
         bool enterPressed = false;
         bool escPressed = false;
+        LoadMaps();
 
         do
         {
@@ -43,7 +62,7 @@ class SettingScreen : Screen
             hardware.DrawImage(imgSetting);
             hardware.DrawImage(imgChosenOption);
             hardware.WriteText(fontMap, 360, 250);
-            hardware.UpdateScreen();
+            
 
             int keyPressed = hardware.KeyPressed();
             if (keyPressed == Hardware.KEY_UP && chosenOption > 1)
@@ -61,7 +80,7 @@ class SettingScreen : Screen
             // Option 1: change Map
             else if (chosenOption == 1 && keyPressed == Hardware.KEY_RIGHT)
             {
-                if (count < 2)
+                if (count < map.Length-1)
                 {
                     count++;
                     fontMap = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
@@ -72,7 +91,7 @@ class SettingScreen : Screen
             }
             else if (chosenOption == 1 && keyPressed == Hardware.KEY_LEFT)
             {
-                if (count > 0)
+                if (count >= 1)
                 {
                     count--;
                     fontMap = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
@@ -83,7 +102,7 @@ class SettingScreen : Screen
             }
             // Option 2: Start Game
             else if (chosenOption == 2 && keyPressed == Hardware.KEY_ENTER)
-                game.Show();
+                game.Show(map[count]);
 
             else if (keyPressed == Hardware.KEY_ESC)
             {
@@ -95,6 +114,8 @@ class SettingScreen : Screen
                 enterPressed = true;
                 exit = false;
             }
+
+            hardware.UpdateScreen();
         }
         while (!escPressed && !enterPressed);
     }

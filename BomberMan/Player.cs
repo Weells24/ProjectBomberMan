@@ -12,7 +12,6 @@ abstract class Player : MovableSprite
     }
 
     public abstract void AddBomb();
-    public abstract void RemoveBomb();
 
     public void AddBomb(Weapons b)
     {
@@ -23,8 +22,8 @@ abstract class Player : MovableSprite
         Bombs.Add(b);
     }
 
-    public void RemoveBomb(Weapons b)
+    public void RemoveBomb(int index)
     {
-        Bombs.Remove(b);
+        Bombs.RemoveAt(index);
     }
 }

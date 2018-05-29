@@ -28,16 +28,13 @@ class GameScreen : Screen
         imgInfo = new Image("imgs/InfoPanel.png", 840, 75);
         imgInfo.MoveTo(0, 680);
         
-        // preload level
-        level = new Level("levels/level1.txt");
-        
         playerWhite = new PlayerWhite();
         playerRed = new PlayerRed();
         bomb = new Bombs();
         controller = new ControllerScreen(hardware);
     }
 
-    private void ShotBomb()
+   /*private void ShotBomb()
     {
         bool space = hardware.IsKeyPressed(Hardware.KEY_SPACE);
         bool nenter = hardware.IsKeyPressed(Hardware.KEY_NENTER);
@@ -47,12 +44,7 @@ class GameScreen : Screen
 
         if (nenter)
             bomb.AnimateBomb(MovableSprite.SpriteMovementBomb.SPACE);
-    }
-
-    public void ChangeBomb(Object o)
-    {
-
-    }
+    }*/
 
     private void movePlayer()
     {
@@ -177,17 +169,16 @@ class GameScreen : Screen
     }
 
 
-    public override void Show()
+    public void Show(string filename)
     {
         short oldXWhite, oldYWhite, oldXMapWhite, oldYMapWhite;
         short oldXRed, oldYRed, oldXMapRed, oldYMapRed;
         bool enterPressed = false;
         bool escPressed = false;
-        level = new Level("levels/level1.txt");
+        level = new Level("levels/"+filename);
         playerWhite.MoveTo(40, 40);
         playerRed.MoveTo(120, 120);
         var timer = new Timer(this.DecreaseTime, null, 1000, 1000);
-        var changeSpriteBomb = new Timer(this.ChangeBomb, null, 1000, 3000);
 
         //audio.PlayMusic(0, -1);
 
@@ -215,20 +206,20 @@ class GameScreen : Screen
                     Sprite.SPRITE_WIDTH,
                     Sprite.SPRITE_HEIGHT);
 
-            foreach (MovableSprite bomb in playerWhite.Bombs)
-                hardware.DrawSprite(Sprite.spritesheet,
-                    (short)(bomb.X - level.XMap),
-                    (short)(bomb.Y - level.YMap),
-                    bomb.SpriteX, bomb.SpriteY, 
-                    Sprite.SPRITE_WIDTH, 
-                    Sprite.SPRITE_HEIGHT);
-
-            foreach (MovableSprite bomb in playerRed.Bombs)
+            foreach (Weapons bomb in playerWhite.Bombs)
                 hardware.DrawSprite(Sprite.spritesheet,
                     (short)(bomb.X - level.XMap),
                     (short)(bomb.Y - level.YMap),
                     bomb.SpriteX, bomb.SpriteY,
                     Sprite.SPRITE_WIDTH,
+                    Sprite.SPRITE_HEIGHT);
+
+            foreach (Weapons bomb in playerRed.Bombs)
+                hardware.DrawSprite(Sprite.spritesheet, 
+                    (short)(bomb.X - level.XMap), 
+                    (short)(bomb.Y - level.YMap),
+                    bomb.SpriteX, bomb.SpriteY, 
+                    Sprite.SPRITE_WIDTH, 
                     Sprite.SPRITE_HEIGHT);
 
             hardware.DrawSprite(Sprite.spritesheet, 
@@ -268,18 +259,16 @@ class GameScreen : Screen
             if (keyPressed == Hardware.KEY_NENTER)
             {
                 playerWhite.AddBomb();
-                playerWhite.RemoveBomb();
             }
             if (keyPressed == Hardware.KEY_SPACE)
             {
                 playerRed.AddBomb();
-                playerRed.RemoveBomb();
             }
             if (hardware.IsKeyPressed(Hardware.KEY_P))
             {
                 timer.Dispose();
                 controller.Show();
-                timer = new Timer(this.DecreaseTime, null, 1000, 1000); ;
+                timer = new Timer(this.DecreaseTime, null, 1000, 1000);
             }
             // 3.  Check collisions and update game state
             if (playerWhite.CollidesWith(level.Bricks) ||
@@ -301,7 +290,7 @@ class GameScreen : Screen
             }
 
             //Pause Game
-            Thread.Sleep(10);
+            Thread.Sleep(20);
         }
         while (!escPressed && !enterPressed);
         timer.Dispose();
