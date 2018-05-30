@@ -21,9 +21,4 @@ abstract class Player : MovableSprite
         b.UpdateSpriteBomb();
         Bombs.Add(b);
     }
-
-    public void RemoveBomb(int index)
-    {
-        Bombs.RemoveAt(index);
-    }
 }

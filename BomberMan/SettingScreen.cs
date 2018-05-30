@@ -35,8 +35,7 @@ class SettingScreen : Screen
     public void LoadMaps()
     {
         DirectoryInfo dir = 
-            new DirectoryInfo(@"C:\Users\Brandon\Documents\ProjectBomberMan\"+
-            @"BomberMan\levels");
+            new DirectoryInfo(@".\levels");
         FileInfo[] files = dir.GetFiles();
         int size = files.Length;
         map = new string[size];

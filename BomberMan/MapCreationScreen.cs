@@ -10,7 +10,6 @@ class MapCreationScreen : Screen
     const int WIDTH = 22;
     const int HEIGHT = 16;
     const short YMAP = 240;
-    //const short XFIXED = 14;
 
     Font font20;
     IntPtr fontEdition, fontAlert;
@@ -27,6 +26,8 @@ class MapCreationScreen : Screen
     int row = 0;
     string fileDefault = "./lvldefault.lvl";
     string filename;
+    public List<Sprite> Bricks { get; }
+    public List<Sprite> BricksDestroyable { get; }
 
 
     public MapCreationScreen(Hardware hardware) : base(hardware)
@@ -41,6 +42,8 @@ class MapCreationScreen : Screen
         imgFloor.MoveTo(0, 0);
         imgCursor.MoveTo(40, 40);
         white = new Sdl.SDL_Color(255, 255, 255);
+        Bricks = new List<Sprite>();
+        BricksDestroyable = new List<Sprite>();
     }
 
     public void LoadMap()
@@ -77,9 +80,7 @@ class MapCreationScreen : Screen
             } while (line != null);
             MapDefault.Close();
         }
-        catch (PathTooLongException)
-        {
-        }
+        catch (PathTooLongException){}
         catch (IOException e)
         {
             Console.WriteLine("I/O ERROR: " + e.Message);
@@ -109,36 +110,38 @@ class MapCreationScreen : Screen
 
         try
         {
-            if (File.Exists(filename))
+            if (!File.Exists(filename))
             {
-                alertCreate = "The file exists you want to overwrite it";
+                alertCreate = "The file exists you want to overwrite it?";
                 fontAlert =
                         SdlTtf.TTF_RenderText_Solid(font20.GetFontType(),
                         alertCreate, white);
                 hardware.WriteText(fontAlert, XMap, YMAP);
             }
-            StreamWriter NewMap =
-                File.CreateText(@"./" + filename + ".lvl");
-            for (int i = 0; i < map.Length; i++)
+            int keypressed = hardware.KeyPressed();
+            if (keypressed == Hardware.KEY_ENTER)
             {
-                for (int j = 0; j < map[i].Length; j++)
+                StreamWriter NewMap =
+                    File.CreateText(@".\levels\" + filename + ".lvl");
+                for (int i = 0; i < map.Length; i++)
                 {
-                    NewMap.Write(map[i][j]);
+                    for (int j = 0; j < map[i].Length; j++)
+                    {
+                        NewMap.Write(map[i][j]);
+                    }
+                    NewMap.WriteLine();
                 }
-                NewMap.WriteLine();
-            }
-            NewMap.Close();
+                NewMap.Close();
 
-            alertCreate = "Save File!";
-            fontAlert =
-                    SdlTtf.TTF_RenderText_Solid(font20.GetFontType(),
-                    alertCreate, white);
-            hardware.WriteText(fontAlert, 650, 710);
-            Thread.Sleep(100);
+                alertCreate = "Save File!";
+                fontAlert =
+                        SdlTtf.TTF_RenderText_Solid(font20.GetFontType(),
+                        alertCreate, white);
+                hardware.WriteText(fontAlert, 650, 710);
+                Thread.Sleep(1000);
+            }
         }
-        catch (PathTooLongException)
-        {
-        }
+        catch (PathTooLongException) { }
         catch (IOException e)
         {
             Console.WriteLine("I/O ERROR: " + e.Message);
@@ -152,27 +155,20 @@ class MapCreationScreen : Screen
     public void MapName()
     {
         string letter = "";
-        int tamano = 0;
-        bool finish = false;
+        int size;
 
         do
         {
             letter += hardware.ReadCharacter();
-            tamano = letter.Length;
+            size = letter.Length;
             fontEdition =
                 SdlTtf.TTF_RenderText_Solid(font20.GetFontType(),
                 letter, white);
             hardware.WriteText(fontEdition, XMap, YMAP);
             filename = letter;
-
-            int keyPressed = hardware.KeyPressed();
-            if (keyPressed == Hardware.KEY_ENTER)
-            {
-                finish = true;
-            }
-            Console.WriteLine(letter);
+            
             hardware.UpdateScreen();
-        } while (tamano <= 11);
+        } while (size <= 11);
     }
 
     public override void Show()
@@ -182,8 +178,8 @@ class MapCreationScreen : Screen
         hardware.UpdateScreen();
         bool escPressed = false;
         level = new Level(fileDefault);
-        LoadMap();
         MapName();
+        LoadMap();
 
         do
         {
@@ -191,7 +187,7 @@ class MapCreationScreen : Screen
             hardware.DrawImage(imgFloor);
             hardware.DrawImage(imgMap);
             hardware.DrawImage(imgCursor);
-
+            
             foreach (Brick brick in level.Bricks)
                 hardware.DrawSprite(Sprite.spritesheet,
                     (short)(brick.X - level.XMap),
@@ -214,27 +210,27 @@ class MapCreationScreen : Screen
             {
                 case Hardware.KEY_UP:
                     cursorY--;
-                    cursorYGrafic -= 40;
+                    if (cursorYGrafic > 40)
+                        cursorYGrafic -= 40;
                     imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
-                    //Console.WriteLine("U: " + cursorYGrafic);
                     break;
                 case Hardware.KEY_DOWN:
                     cursorY++;
-                    cursorYGrafic += 40;
+                    if (cursorYGrafic < 560)
+                        cursorYGrafic += 40;
                     imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
-                    //Console.WriteLine("D: " + cursorYGrafic);
                     break;
                 case Hardware.KEY_LEFT:
                     cursorX--;
-                    cursorXGrafic -= 40;
+                    if (cursorXGrafic > 40)
+                        cursorXGrafic -= 40;
                     imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
-                    //Console.WriteLine("L: " + cursorXGrafic);
                     break;
                 case Hardware.KEY_RIGHT:
                     cursorX++;
-                    cursorXGrafic += 40;
+                    if (cursorXGrafic < 760)
+                        cursorXGrafic += 40;
                     imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
-                    //Console.WriteLine("R: " + cursorXGrafic);
                     break;
                 case Hardware.KEY_B:
                     if (cursorX >= 1 && cursorX <= 20 &&
@@ -242,7 +238,6 @@ class MapCreationScreen : Screen
                     {
                         map[cursorY][cursorX] = 'B';
                     }
-                    //Console.WriteLine(map[cursorX][cursorY]);
                     break;
                 case Hardware.KEY_D:
                     if (cursorX >= 1 && cursorX <= 20 &&
@@ -250,7 +245,6 @@ class MapCreationScreen : Screen
                     {
                         map[cursorY][cursorX] = 'D';
                     }
-                    //Console.WriteLine(map[cursorX][cursorY]);
                     break;
                 case Hardware.KEY_ENTER:
                     CreateMap();
@@ -259,7 +253,7 @@ class MapCreationScreen : Screen
             }
 
             //Pause Game
-            Thread.Sleep(70);
+            Thread.Sleep(90);
 
             if (keyPressed == Hardware.KEY_ESC)
                 escPressed = true;

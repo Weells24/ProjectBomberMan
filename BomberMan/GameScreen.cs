@@ -173,7 +173,6 @@ class GameScreen : Screen
     {
         short oldXWhite, oldYWhite, oldXMapWhite, oldYMapWhite;
         short oldXRed, oldYRed, oldXMapRed, oldYMapRed;
-        bool enterPressed = false;
         bool escPressed = false;
         level = new Level("levels/"+filename);
         playerWhite.MoveTo(40, 40);
@@ -292,7 +291,7 @@ class GameScreen : Screen
             //Pause Game
             Thread.Sleep(20);
         }
-        while (!escPressed && !enterPressed);
+        while (!escPressed);
         timer.Dispose();
         //audio.StopMusic();
     }
