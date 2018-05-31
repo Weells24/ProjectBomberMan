@@ -102,6 +102,23 @@ class MapCreationScreen : Screen
                     map[height][width] = ' ';
             }
         }*/
+
+        for (int i = 0; i < map.Length; i++)
+        {
+            for (int j = 0; j < map[i].Length; j++)
+            {
+                if (map[i][j] == 'B' || map[i][j] == 'b')
+                {
+                    Bricks.Add(new Brick((short)(j * Sprite.SPRITE_WIDTH),
+                    (short)(i * Sprite.SPRITE_HEIGHT)));
+                }
+                if (map[i][j] == 'D' || map[i][j] == 'd')
+                {
+                    BricksDestroyable.Add(new BrickDestroyable((short)(j * Sprite.SPRITE_WIDTH),
+                    (short)(i * Sprite.SPRITE_HEIGHT)));
+                }
+            }
+        }
     }
 
     public void CreateMap()
@@ -110,7 +127,7 @@ class MapCreationScreen : Screen
 
         try
         {
-            if (!File.Exists(filename))
+            if (File.Exists(filename+".lvl"))
             {
                 alertCreate = "The file exists you want to overwrite it?";
                 fontAlert =
@@ -118,9 +135,6 @@ class MapCreationScreen : Screen
                         alertCreate, white);
                 hardware.WriteText(fontAlert, XMap, YMAP);
             }
-            int keypressed = hardware.KeyPressed();
-            if (keypressed == Hardware.KEY_ENTER)
-            {
                 StreamWriter NewMap =
                     File.CreateText(@".\levels\" + filename + ".lvl");
                 for (int i = 0; i < map.Length; i++)
@@ -138,8 +152,7 @@ class MapCreationScreen : Screen
                         SdlTtf.TTF_RenderText_Solid(font20.GetFontType(),
                         alertCreate, white);
                 hardware.WriteText(fontAlert, 650, 710);
-                Thread.Sleep(1000);
-            }
+                Thread.Sleep(100);
         }
         catch (PathTooLongException) { }
         catch (IOException e)
@@ -159,16 +172,16 @@ class MapCreationScreen : Screen
 
         do
         {
-            letter += hardware.ReadCharacter();
+            letter += hardware.ReadCharacter(letter);
             size = letter.Length;
+            Console.WriteLine(letter);
             fontEdition =
                 SdlTtf.TTF_RenderText_Solid(font20.GetFontType(),
                 letter, white);
             hardware.WriteText(fontEdition, XMap, YMAP);
             filename = letter;
-            
             hardware.UpdateScreen();
-        } while (size <= 11);
+        } while (size <= 7);
     }
 
     public override void Show()
@@ -186,9 +199,9 @@ class MapCreationScreen : Screen
             hardware.ClearScreen();
             hardware.DrawImage(imgFloor);
             hardware.DrawImage(imgMap);
-            hardware.DrawImage(imgCursor);
+            //hardware.DrawImage(imgCursor);
             
-            foreach (Brick brick in level.Bricks)
+            foreach (Brick brick in Bricks)
                 hardware.DrawSprite(Sprite.spritesheet,
                     (short)(brick.X - level.XMap),
                     (short)(brick.Y - level.YMap),
@@ -196,47 +209,59 @@ class MapCreationScreen : Screen
                     Sprite.SPRITE_WIDTH,
                     Sprite.SPRITE_HEIGHT);
 
-            foreach (BrickDestroyable bdes in level.BricksDestroyable)
+            foreach (BrickDestroyable bdes in BricksDestroyable)
                 hardware.DrawSprite(Sprite.spritesheet,
                     (short)(bdes.X - level.XMap),
                     (short)(bdes.Y - level.YMap),
                     bdes.SpriteX, bdes.SpriteY,
                     Sprite.SPRITE_WIDTH,
                     Sprite.SPRITE_HEIGHT);
-
+            
             int keyPressed = hardware.KeyPressed();
-            keyPressed = hardware.KeyPressed();
             switch (keyPressed)
             {
                 case Hardware.KEY_UP:
-                    cursorY--;
-                    if (cursorYGrafic > 40)
-                        cursorYGrafic -= 40;
-                    imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
+                    if (cursorY > 1)
+                    {
+                        cursorY--;
+                        if (cursorYGrafic > 40)
+                            cursorYGrafic -= 40;
+                            imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
+                    }
                     break;
                 case Hardware.KEY_DOWN:
-                    cursorY++;
-                    if (cursorYGrafic < 560)
-                        cursorYGrafic += 40;
-                    imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
+                    if (cursorY < 15)
+                    {
+                        cursorY++;
+                        if (cursorYGrafic < 560)
+                            cursorYGrafic += 40;
+                        imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
+                    }
                     break;
                 case Hardware.KEY_LEFT:
-                    cursorX--;
-                    if (cursorXGrafic > 40)
-                        cursorXGrafic -= 40;
-                    imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
+                    if (cursorX > 1)
+                    {
+                        cursorX--;
+                        if (cursorXGrafic > 40)
+                            cursorXGrafic -= 40;
+                        imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
+                    }
                     break;
                 case Hardware.KEY_RIGHT:
-                    cursorX++;
-                    if (cursorXGrafic < 760)
-                        cursorXGrafic += 40;
-                    imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
+                    if (cursorX < 21)
+                    {
+                        cursorX++;
+                        if (cursorXGrafic < 760)
+                            cursorXGrafic += 40;
+                        imgCursor.MoveTo(cursorXGrafic, cursorYGrafic);
+                    }
                     break;
                 case Hardware.KEY_B:
                     if (cursorX >= 1 && cursorX <= 20 &&
                             cursorY >= 1 && cursorY <= 16)
                     {
                         map[cursorY][cursorX] = 'B';
+                        Bricks.Add(new Brick(cursorXGrafic, cursorYGrafic));
                     }
                     break;
                 case Hardware.KEY_D:
@@ -244,20 +269,29 @@ class MapCreationScreen : Screen
                             cursorY >= 1 && cursorY <= 16)
                     {
                         map[cursorY][cursorX] = 'D';
+                        BricksDestroyable.Add(new BrickDestroyable(
+                               cursorXGrafic, cursorYGrafic));
+                    }
+                    break;
+                case Hardware.KEY_SPACE:
+                    if (cursorX >= 1 && cursorX <= 20 &&
+                            cursorY >= 1 && cursorY <= 16)
+                    {
+                        map[cursorY][cursorX] = ' ';
                     }
                     break;
                 case Hardware.KEY_ENTER:
                     CreateMap();
-                    //Console.WriteLine("Create!");
                     break;
             }
 
             //Pause Game
-            Thread.Sleep(90);
+            Thread.Sleep(16);
 
             if (keyPressed == Hardware.KEY_ESC)
                 escPressed = true;
 
+            hardware.DrawImage(imgCursor);
             hardware.UpdateScreen();
         } while (!escPressed);
     }

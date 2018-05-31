@@ -21,6 +21,7 @@ class Hardware
     public const int KEY_SPACE = Sdl.SDLK_SPACE;
     public const int KEY_NENTER = Sdl.SDLK_KP_ENTER;
     public const int KEY_DELETE = Sdl.SDLK_DELETE;
+    public const int KEY_SUPR = Sdl.SDLK_BACKSPACE;
     public const int KEY_A = Sdl.SDLK_a;
     public const int KEY_B = Sdl.SDLK_b;
     public const int KEY_C = Sdl.SDLK_c;
@@ -174,7 +175,6 @@ class Hardware
         Sdl.SDL_FillRect(screen, ref source, 0);
     }
 
-
     // Writes a text in the specified coordinates
     public void WriteText(IntPtr textAsImage, short x, short y)
     {
@@ -186,20 +186,20 @@ class Hardware
     }
 
     
-    public string ReadCharacter()
+    public string ReadCharacter(string str)
     {
-        string character = "";
+        string character = str;
         bool exit = false;
         int key_int;
         do
         {
             key_int = KeyPressed();
             //Console.WriteLine(key_int);
-            /*if (key_int == 8)
+            if (key_int == 8)
             {
                 int tamano = str.Length;
                 character = str.Remove(tamano - 1);
-            }*/
+            }
             if (key_int != -1)
                 exit = true;
         } while (!exit);

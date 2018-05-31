@@ -6,7 +6,7 @@ using System.IO;
 class SettingScreen : Screen
 {
     bool exit;
-    Image imgSetting, imgChosenOption;
+    Image imgSetting, imgChosenOption, imgSupr;
     int chosenOption = 1;
     Audio audio;
     Font font;
@@ -15,6 +15,7 @@ class SettingScreen : Screen
     int count = 0;
     GameScreen game;
     Sdl.SDL_Color white;
+    SelectLenguage select;
 
     public SettingScreen(Hardware hardware) : base(hardware)
     {
@@ -26,10 +27,18 @@ class SettingScreen : Screen
                 new Image("imgs/SettingsScreen.png", 840, 755);
         imgChosenOption =
                 new Image("imgs/select.png", 40, 35);
+        imgSupr =
+                new Image("imgs/delete.png", 563, 42);
         game = new GameScreen(hardware);
         imgSetting.MoveTo(0, 0);
+        imgSupr.MoveTo(100, 100);
         imgChosenOption.MoveTo(170, 240);
         white = new Sdl.SDL_Color(255, 255, 255);
+        select = new SelectLenguage(hardware);
+        if (select.GetOption() == 1)
+        {
+
+        }
     }
 
     public void LoadMaps()
@@ -47,6 +56,15 @@ class SettingScreen : Screen
                 map[i] = files[i].Name;
             }
         }
+    }
+
+    public void DrawOption()
+    {
+        hardware.DrawImage(imgSupr);
+        string[] tmp = map[count].Split('.');
+        fontMap = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                tmp[0], white);
+        hardware.WriteText(fontMap, 360, 250);
     }
 
     public override void Show()
@@ -79,26 +97,32 @@ class SettingScreen : Screen
             // Option 1: change Map
             else if (chosenOption == 1 && keyPressed == Hardware.KEY_RIGHT)
             {
-                if (count < map.Length-1)
+                if (count < map.Length - 1)
                 {
                     count++;
-                    fontMap = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                            map[count], white);
-                    hardware.WriteText(fontMap, 360, 250);
-                    hardware.UpdateScreen();
+                    DrawOption();
                 }
             }
             else if (chosenOption == 1 && keyPressed == Hardware.KEY_LEFT)
             {
-                if (count >= 1)
+                if (count > 0)
                 {
                     count--;
-                    fontMap = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
-                            map[count], white);
-                    hardware.WriteText(fontMap, 360, 250);
-                    hardware.UpdateScreen();
+                    DrawOption();
                 }
             }
+            else if (chosenOption == 1 && keyPressed == Hardware.KEY_DELETE)
+            {
+                File.Delete(@".\levels\" + map[count]);
+                LoadMaps();
+                string[] tmp = map[count].Split('.');
+                fontMap = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        tmp[0], white);
+                hardware.WriteText(fontMap, 360, 250);
+            }
+            else if (chosenOption == 1)
+                DrawOption();
+
             // Option 2: Start Game
             else if (chosenOption == 2 && keyPressed == Hardware.KEY_ENTER)
                 game.Show(map[count]);
@@ -112,6 +136,13 @@ class SettingScreen : Screen
             {
                 enterPressed = true;
                 exit = false;
+            }
+            else
+            {
+                string[] tmp = map[count].Split('.');
+                fontMap = SdlTtf.TTF_RenderText_Solid(font.GetFontType(),
+                        tmp[0], white);
+                hardware.WriteText(fontMap, 360, 250);
             }
 
             hardware.UpdateScreen();

@@ -110,7 +110,6 @@ C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\jpeg.dll
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\libfreetype-6.dll
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\libpng12-0.dll
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\libpng12.dll
-C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\music\BombermanNES.mp3
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\music\BOM_11_M.wav
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\music\BOS_JUMP.wav
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\music\reset.wav
@@ -130,3 +129,14 @@ C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\ControllerS
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\MapScreen.png
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\cursor.png
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\NameMap.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\bomb1.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\bomb2.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\bomb3.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\delete.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\music\BombermanNES.wav
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\ControllerScreen.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\CreditsScreen.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\MapScreen.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\MenuPrincipal.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\NameMap.png
+C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\SelectLenguage.png

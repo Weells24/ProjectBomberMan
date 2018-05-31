@@ -6,6 +6,7 @@ class GameController
 {
     public const short SCREEN_WIDTH = 840;
     public const short SCREEN_HEIGHT = 755;
+    Image imgWelcome, imgChosenOption;
     public void Start()
     {
         Hardware hardware = new Hardware(840, 755, 24, false);
@@ -14,10 +15,13 @@ class GameController
         ControllerScreen controller = new ControllerScreen(hardware);
         CreditsScreen credits = new CreditsScreen(hardware);
         MapCreationScreen mapedition = new MapCreationScreen(hardware);
+        SelectLenguage select = new SelectLenguage(hardware);
+        
 
         do
         {
             hardware.ClearScreen();
+            select.Show();
             if (!welcome.GetExit())
             {
                 welcome.Show();

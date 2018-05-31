@@ -43,6 +43,7 @@ class Level
             }
         }
     }
+
     public void AddBrick(Brick b)
     {
         Bricks.Add(b);

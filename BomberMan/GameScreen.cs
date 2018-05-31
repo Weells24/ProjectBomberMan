@@ -7,10 +7,11 @@ class GameScreen : Screen
     ControllerScreen controller;
     Player playerWhite, playerRed;
     MovableSprite bomb;
-    Image imgInfo, imgFloor;
+    Image imgInfo, imgFloor, bomb1, bomb2, bomb3;
     Font font36, font28;
     Level level;
     IntPtr fontTime;
+    Audio audio;
     int min = 3;
     int sec = 0;
     Sdl.SDL_Color white;
@@ -27,10 +28,15 @@ class GameScreen : Screen
         imgFloor.MoveTo(0, 0);
         imgInfo = new Image("imgs/InfoPanel.png", 840, 75);
         imgInfo.MoveTo(0, 680);
-        
+        bomb1 = new Image("imgs/bomb1.png", 40, 40);
+        bomb2 = new Image("imgs/bomb2.png", 40, 40);
+        bomb3 = new Image("imgs/bomb3.png", 40, 40);
+
         playerWhite = new PlayerWhite();
         playerRed = new PlayerRed();
         bomb = new Bombs();
+        audio = new Audio(44100, 2, 4096);
+        audio.AddMusic("music/BombermanNES.wav");
         controller = new ControllerScreen(hardware);
     }
 
@@ -176,10 +182,9 @@ class GameScreen : Screen
         bool escPressed = false;
         level = new Level("levels/"+filename);
         playerWhite.MoveTo(40, 40);
-        playerRed.MoveTo(120, 120);
+        playerRed.MoveTo(760, 600);
         var timer = new Timer(this.DecreaseTime, null, 1000, 1000);
-
-        //audio.PlayMusic(0, -1);
+        audio.PlayMusic(0, -1);
 
         do
         {
@@ -293,6 +298,6 @@ class GameScreen : Screen
         }
         while (!escPressed);
         timer.Dispose();
-        //audio.StopMusic();
+        audio.StopMusic();
     }
 }
