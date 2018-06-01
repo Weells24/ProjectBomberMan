@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-class Screen
+﻿class Screen
 {
     protected Hardware hardware;
 
@@ -13,7 +6,7 @@ class Screen
     {
         this.hardware = hardware;
     }
-
+    
     public virtual void Show()
     {
     }

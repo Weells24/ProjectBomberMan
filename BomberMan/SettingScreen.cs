@@ -9,12 +9,12 @@ class SettingScreen : Screen
     Image imgSetting, imgChosenOption, imgSupr;
     int chosenOption = 1;
     Audio audio;
-    Font font;
-    IntPtr fontMap;
+    Font font, font42;
+    IntPtr fontMap, fontChange, fontPlayer;
     string[] map;
     int count = 0;
     GameScreen game;
-    Sdl.SDL_Color white;
+    Sdl.SDL_Color white, yellow;
     SelectLenguage select;
 
     public SettingScreen(Hardware hardware) : base(hardware)
@@ -23,6 +23,7 @@ class SettingScreen : Screen
         audio = new Audio(44100, 2, 4096);
         audio.AddWAV("music/reset.wav");
         font = new Font("font/Joystix.ttf", 28);
+        font42 = new Font("font/Joystix.ttf", 42);
         imgSetting =
                 new Image("imgs/SettingsScreen.png", 840, 755);
         imgChosenOption =
@@ -32,13 +33,10 @@ class SettingScreen : Screen
         game = new GameScreen(hardware);
         imgSetting.MoveTo(0, 0);
         imgSupr.MoveTo(100, 100);
-        imgChosenOption.MoveTo(170, 240);
+        imgChosenOption.MoveTo(140, 240);
         white = new Sdl.SDL_Color(255, 255, 255);
+        yellow = new Sdl.SDL_Color(255, 255, 0);
         select = new SelectLenguage(hardware);
-        if (select.GetOption() == 1)
-        {
-
-        }
     }
 
     public void LoadMaps()
@@ -71,13 +69,26 @@ class SettingScreen : Screen
     {
         bool enterPressed = false;
         bool escPressed = false;
+        Lenguage len = new Lenguage();
+        int option = SelectLenguage.option;
+        
+        
+
         LoadMaps();
+
 
         do
         {
             hardware.ClearScreen();
             hardware.DrawImage(imgSetting);
             hardware.DrawImage(imgChosenOption);
+            fontChange = SdlTtf.TTF_RenderText_Solid(font42.GetFontType(),
+                len.Change(option, 5), yellow);
+            fontPlayer = SdlTtf.TTF_RenderText_Solid(font42.GetFontType(),
+                len.Change(option, 7), yellow);
+            hardware.WriteText(fontPlayer, 50, 500);
+            hardware.WriteText(fontPlayer, 550, 500);
+            hardware.WriteText(fontChange, 200, 240);
             hardware.WriteText(fontMap, 360, 250);
             
 
@@ -86,7 +97,7 @@ class SettingScreen : Screen
             {
                 audio.PlayWAV(0, 1, 0);
                 chosenOption--;
-                imgChosenOption.MoveTo(160, (short)(imgChosenOption.Y - 180));
+                imgChosenOption.MoveTo(140, (short)(imgChosenOption.Y - 180));
             }
             else if (keyPressed == Hardware.KEY_DOWN && chosenOption < 2)
             {

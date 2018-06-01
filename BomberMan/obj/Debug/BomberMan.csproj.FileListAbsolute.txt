@@ -134,9 +134,3 @@ C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\bomb2.png
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\bomb3.png
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\delete.png
 C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\music\BombermanNES.wav
-C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\ControllerScreen.png
-C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\CreditsScreen.png
-C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\MapScreen.png
-C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\MenuPrincipal.png
-C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\NameMap.png
-C:\Users\Brandon\Documents\ProjectBomberMan\BomberMan\bin\Debug\imgs\castellano\SelectLenguage.png

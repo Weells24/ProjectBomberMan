@@ -1,7 +1,5 @@
 ﻿using System;
 using Tao.Sdl;
-
-
 class GameController
 {
     public const short SCREEN_WIDTH = 840;
@@ -16,7 +14,6 @@ class GameController
         CreditsScreen credits = new CreditsScreen(hardware);
         MapCreationScreen mapedition = new MapCreationScreen(hardware);
         SelectLenguage select = new SelectLenguage(hardware);
-        
 
         do
         {

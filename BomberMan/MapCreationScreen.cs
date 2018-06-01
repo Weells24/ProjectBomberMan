@@ -9,12 +9,12 @@ class MapCreationScreen : Screen
 {
     const int WIDTH = 22;
     const int HEIGHT = 16;
-    const short YMAP = 240;
+    const short YMAP = 160;
 
     Font font20;
-    IntPtr fontEdition, fontAlert;
+    IntPtr fontEdition, fontAlert, fontName, fontCursor, fontSave;
     Sdl.SDL_Color white;
-    Image imgMap, imgFloor, imgCursor,imgName;
+    Image imgMap, imgFloor, imgCursor;
     Level level;
     char[][] map = new char[HEIGHT][];
     short XMap = 330;
@@ -28,6 +28,10 @@ class MapCreationScreen : Screen
     string filename;
     public List<Sprite> Bricks { get; }
     public List<Sprite> BricksDestroyable { get; }
+    Lenguage len = new Lenguage();
+    int option = SelectLenguage.option;
+    Font font32, font16;
+    Sdl.SDL_Color yellow;
 
 
     public MapCreationScreen(Hardware hardware) : base(hardware)
@@ -35,15 +39,16 @@ class MapCreationScreen : Screen
         font20 = new Font("font/Joystix.ttf", 20);
         imgMap = new Image("imgs/MapScreen.png", 840, 105);
         imgFloor = new Image("imgs/Floor.png", 840, 680);
-        imgName = new Image("imgs/NameMap.png", 840, 745);
         imgCursor = new Image("imgs/cursor.png", 40, 40);
-        imgName.MoveTo(0, 0);
         imgMap.MoveTo(0, 640);
         imgFloor.MoveTo(0, 0);
         imgCursor.MoveTo(40, 40);
         white = new Sdl.SDL_Color(255, 255, 255);
         Bricks = new List<Sprite>();
         BricksDestroyable = new List<Sprite>();
+        font32 = new Font("font/Joystix.ttf", 32);
+        font16 = new Font("font/Joystix.ttf", 16);
+        yellow = new Sdl.SDL_Color(255, 255, 0);
     }
 
     public void LoadMap()
@@ -146,11 +151,10 @@ class MapCreationScreen : Screen
                     NewMap.WriteLine();
                 }
                 NewMap.Close();
-
-                alertCreate = "Save File!";
+            
                 fontAlert =
                         SdlTtf.TTF_RenderText_Solid(font20.GetFontType(),
-                        alertCreate, white);
+                        len.Change(option,8), white);
                 hardware.WriteText(fontAlert, 650, 710);
                 Thread.Sleep(100);
         }
@@ -187,7 +191,10 @@ class MapCreationScreen : Screen
     public override void Show()
     {
         hardware.ClearScreen();
-        hardware.DrawImage(imgName);
+        hardware.DrawImage(imgFloor);
+        fontName = SdlTtf.TTF_RenderText_Solid(font32.GetFontType(),
+                           len.Change(option, 21), yellow);
+        hardware.WriteText(fontName, 150, 150);
         hardware.UpdateScreen();
         bool escPressed = false;
         level = new Level(fileDefault);
@@ -199,8 +206,14 @@ class MapCreationScreen : Screen
             hardware.ClearScreen();
             hardware.DrawImage(imgFloor);
             hardware.DrawImage(imgMap);
-            //hardware.DrawImage(imgCursor);
-            
+            fontCursor = SdlTtf.TTF_RenderText_Solid(font16.GetFontType(),
+                           len.Change(option, 9), yellow);
+            hardware.WriteText(fontCursor, 425, 675);
+            fontSave = SdlTtf.TTF_RenderText_Solid(font16.GetFontType(),
+                           len.Change(option, 8), yellow);
+            hardware.WriteText(fontSave, 63, 670);
+            hardware.DrawImage(imgCursor);
+
             foreach (Brick brick in Bricks)
                 hardware.DrawSprite(Sprite.spritesheet,
                     (short)(brick.X - level.XMap),

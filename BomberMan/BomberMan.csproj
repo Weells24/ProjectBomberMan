@@ -75,6 +75,7 @@
     <Compile Include="GameScreen.cs" />
     <Compile Include="Hardware.cs" />
     <Compile Include="Image.cs" />
+    <Compile Include="Lenguage.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="MapCreationScreen.cs" />
     <Compile Include="MovableSprite.cs" />
@@ -114,24 +115,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgs\Brick.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="imgs\castellano\ControllerScreen.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="imgs\castellano\CreditsScreen.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="imgs\castellano\MapScreen.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="imgs\castellano\MenuPrincipal.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="imgs\castellano\NameMap.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="imgs\castellano\SelectLenguage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgs\ControllerScreen.png">

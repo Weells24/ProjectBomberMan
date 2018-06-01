@@ -10,7 +10,7 @@ class GameScreen : Screen
     Image imgInfo, imgFloor, bomb1, bomb2, bomb3;
     Font font36, font28;
     Level level;
-    IntPtr fontTime;
+    IntPtr fontTime, fontPause;
     Audio audio;
     int min = 3;
     int sec = 0;
@@ -39,18 +39,6 @@ class GameScreen : Screen
         audio.AddMusic("music/BombermanNES.wav");
         controller = new ControllerScreen(hardware);
     }
-
-   /*private void ShotBomb()
-    {
-        bool space = hardware.IsKeyPressed(Hardware.KEY_SPACE);
-        bool nenter = hardware.IsKeyPressed(Hardware.KEY_NENTER);
-
-        if (space)
-            bomb.AnimateBomb(MovableSprite.SpriteMovementBomb.SPACE);
-
-        if (nenter)
-            bomb.AnimateBomb(MovableSprite.SpriteMovementBomb.SPACE);
-    }*/
 
     private void movePlayer()
     {
@@ -182,9 +170,11 @@ class GameScreen : Screen
         bool escPressed = false;
         level = new Level("levels/"+filename);
         playerWhite.MoveTo(40, 40);
-        playerRed.MoveTo(760, 600);
+        playerRed.MoveTo(760, 560);
         var timer = new Timer(this.DecreaseTime, null, 1000, 1000);
         audio.PlayMusic(0, -1);
+        Lenguage len = new Lenguage();
+        int option = SelectLenguage.option;
 
         do
         {
@@ -193,6 +183,9 @@ class GameScreen : Screen
             hardware.DrawImage(imgInfo);
             hardware.DrawImage(imgFloor);
             hardware.WriteText(fontTime, 362, 700);
+            fontPause = SdlTtf.TTF_RenderText_Solid(font28.GetFontType(),
+                           len.Change(option, 14), white);
+            hardware.WriteText(fontPause, 525, 705);
 
             foreach (Brick brick in level.Bricks)
                 hardware.DrawSprite(Sprite.spritesheet, 
